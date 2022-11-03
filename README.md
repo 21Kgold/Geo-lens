@@ -1,4 +1,4 @@
-# Geo-lens
+<h1 align="center">LensGEO</h1>
 
 # Description
 LensGEO is a project born from a real need in the construction market, specifically in the machinery rental sector. When you rent a machine, you want to have a timely and accurate report on the use of the machine, since the control of fuel consumption is a critical part of the economic success of the project. But the machines with more than 10 years old, do not have this type of sensors. LensGEO consists of sensors installed on each machine, which send data in real time through the network, and these data are displayed in a dashboard that users can access through any browser. 
@@ -69,5 +69,7 @@ Back-end: sensor configuration, database, communication protocols and deployment
 
 Github: <[METC1](https://github.com/METC1)>
 
-# Medium Blog Post
+# Blog Post
+-
+-
 
