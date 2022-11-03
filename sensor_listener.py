@@ -1,26 +1,23 @@
 #!/usr/bin/python3
-""" Test link Many-To-Many Place <> Amenity
+""" 
+Module to listen and recieve the data sent by the sensors
 """
 from models import *
 from socket import *
 from datetime import datetime
-# from models.amenity import Amenity
 from models.base_model import BaseModel
 from models.sensor_data import Sensor_data
-# from models.city import City
-# from models.place import Place
-# from models.review import Review
-# from models.state import State
-# from models.user import User
-
-
+"""
+Creating the socket
+"""
 s = socket(AF_INET, SOCK_STREAM)
 s.bind(('0.0.0.0', 5222))
 s.listen()
 clientsocket, adress = s.accept()
-# sensor_1 = Sensor_data()
+"""
+Loop to continue listening
+"""
 while True:
-#   clientsocket, adress = s.accept()
     sensor_1 = Sensor_data()
     print ("\n\nclient socket: " + str(clientsocket))
     print ("adress: " + str(adress))
@@ -52,6 +49,9 @@ while True:
     moredata = moredata.split("|")
     fuelvolt = int(moredata[2], base=16)
     fuel_level = (fuelvolt/500) * 100
+    """
+    Print collected data
+    """
     print ("\nsensor_id: " + imei)
     print ("created_at: " + str(datetimeformatted))
     print ("sensor_status: " + gpsstatus)
@@ -61,14 +61,16 @@ while True:
     print ("aux volt input: " + str(inputs))
     print ("Machine status: " + str(machine_st))
     data_dictionary = { 'sensor_id'  : imei, 'created_at' : str(datetimeformatted), 'longitude' : longitude , 'latitude' : latitude, 'sensor_status' : sensor_status , 'machine_status' : machine_st , 'fuel_level' : fuel_level}
-    print ("\ndata_dictionary: " + str(data_dictionary))
-    
+    """
+    parsing and saving data
+    """
     sensor_1.sensor_name = imei
     sensor_1.sensor_status = gpsstatus
     sensor_1.latitude = latitude
     sensor_1.longitude = longitude
     sensor_1.machine_status = machine_st
     sensor_1.fuel_level = fuel_level
+    sensor_1.sensor_time = datetimeformatted
     print("saving..........")
     storage.new(sensor_1)
     storage.save()
