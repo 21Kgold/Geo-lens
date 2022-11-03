@@ -10,14 +10,14 @@ from models.machine import machine
 # from models.place import Place
 # from models.review import Review
 from models.sensor_data import Sensor_data
-from models.user import User
+# from models.user import User
 from os import getenv
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
 classes = {"machine": machine, "BaseModel": BaseModel,
-           "Sensor_data": Sensor_data, "User": User}
+           "Sensor_data": Sensor_data}
 
 
 class DBStorage:
