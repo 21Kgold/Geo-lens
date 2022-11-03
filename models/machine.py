@@ -12,14 +12,11 @@ class machine(BaseModel, Base):
     """Representation of machine """
     if models.storage_t == "db":
         __tablename__ = 'machine'
-#        sensor_id = Column(String(60), ForeignKey('sensor.id'), nullable=False)
         name = Column(String(128), nullable=False)
         model = Column(String(128), nullable=False)
-#        places = relationship("Place",
-#                              backref="cities",
-#                              cascade="all, delete, delete-orphan")
+
     else:
-#        sensor_id = ""
+
         name = ""
         model = ""
 
