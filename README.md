@@ -74,6 +74,7 @@ Back-end: sensor configuration, database, communication protocols and deployment
 Github: <[METC1](https://github.com/METC1)>
 
 # Blog Post
--
--
+
+- https://www.linkedin.com/pulse/design-implementation-digital-transformation-strategy-p%25C3%25A9rez-a-
+- 
 
